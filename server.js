@@ -50,7 +50,7 @@ app.get('/product', function(request, response) {
 app.get('/wishlist', function(request, response){
     WishList.find({}).populate({}).populate({path: 'products', model: 'Product'}).exec(function(err, wishLists) {
         if (err) {
-            response.status(500).send({error:"Could not fetch wishlists"})ว
+            response.status(500).send({error:"Could not fetch wishlists"});
         } else {
             response.status(200).send(wishLists);
         }
