@@ -37,15 +37,15 @@ app.get('/product', function(request, response) {
     });
 });
 
-// app.get('/wishlist', function(request, response) {
-//    WishList.find({}).populate({path:'products', model: 'Product'}).exec(function(err, wishLists) {
-//        if (err) {
-//            response.status(500).send({error:"Could not fetch wishlists"});
-//        } else {
-//            response.status(200).send(wishLists);
-//        }
-//    })
-// });
+app.get('/wishlist', function(request, response) {
+   WishList.find({}).populate({path:'products', model: 'Product'}).exec(function(err, wishLists) {
+       if (err) {
+           response.status(500).send({error:"Could not fetch wishlists"});
+       } else {
+           response.status(200).send(wishLists);
+       }
+   })
+});
 
 app.get('/wishlist', function(request, response){
     WishList.find({}).populate({}).populate({path: 'products', model: 'Product'}).exec(function(err, wishLists) {
@@ -56,7 +56,7 @@ app.get('/wishlist', function(request, response){
         }
     })
 });
-
+//this is test fork
 
 // app.post('/wishlist', function(request, response) {
 //     var wishList = new WishList();
